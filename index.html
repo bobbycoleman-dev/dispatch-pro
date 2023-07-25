@@ -24,7 +24,7 @@
                     <img src="./icons/box.truck.svg" alt="vehicles">
                     Vehicles
                 </a></li>
-            <li class="flex"><a href="#" class="flex">
+            <li class="flex"><a href="customers.html" class="flex">
                     <img src="./icons/person.svg" alt="customers">
                     Customers
                 </a></li>
@@ -358,8 +358,8 @@
                     <select name="truck-number" id="select-truck-num">
                         <option value="1">1</option>
                         <option value="2">2</option>
-                        <option value="3" selected>3</option>
-                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="4" selected>4</option>
                         <option value="5">5</option>
                         <option value="6">6</option>
                     </select>
@@ -381,13 +381,15 @@
                     <p>Reload for more deliveries? (2nd runs)</p>
                     <div class="flex algn-cntr gap-10">
                         <label for="second-runs-yes">Yes</label>
-                        <input type="radio" name="second-runs-yes" id="second-runs-yes" value="Yes" checked>
+                        <input type="radio" name="second-runs-yes" id="second-runs-yes" value="Yes"
+                            onclick="activateSecondRuns()" checked>
                         <label for="second-runs-no">No</label>
-                        <input type="radio" name="second-runs-no" id="second-runs-no" value="No">
+                        <input type="radio" name="second-runs-no" id="second-runs-no" value="No"
+                            onclick="deactivateSecondRuns()">
                     </div>
                 </div>
                 <div class="flex justify-sb">
-                    <label for="second-run-count">Average 2nd run number: </label>
+                    <label for="second-run-count" id="select-second-run-label">Average 2nd run number: </label>
                     <select name="second-run-count" id="select-second-run-count">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -398,7 +400,7 @@
                     </select>
                 </div>
             </form>
-            <button class="save-settings" onclick="displaySettings()">Save</button>
+            <button class="save-settings" onclick="saveSettings()">Save</button>
         </div>
     </div>
 </body>

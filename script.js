@@ -16,6 +16,15 @@ let settingsMenu = document.getElementById("settings-menu");
 let calendarNavIcon = "./icons/calendar.svg";
 let calendarNavIconGreen = "./icons/calendar.green.svg";
 
+let noSecondRuns = document.getElementById("second-runs-no");
+let yesSecondRuns = document.getElementById("second-runs-yes");
+let secondRunCellCount = document.getElementById("select-second-run-count");
+let secondRunCellLabel = document.getElementById("select-second-run-label");
+
+var truckCount = 4;
+var firstRunCount = 4;
+var secondRunCount = 3;
+
 function activeButton(id) {
 	switch (document.getElementById(id)) {
 		case scheduleBtn:
@@ -50,4 +59,22 @@ function displaySettings() {
 		settingsMenu.style.display = "none";
 		settingsDisplayed = false;
 	}
+}
+
+function activateSecondRuns() {
+	noSecondRuns.checked = false;
+	yesSecondRuns.checked = true;
+	secondRunCellCount.style.display = "flex";
+	secondRunCellLabel.style.display = "flex";
+}
+
+function deactivateSecondRuns() {
+	yesSecondRuns.checked = false;
+	noSecondRuns.checked = true;
+	secondRunCellCount.style.display = "none";
+	secondRunCellLabel.style.display = "none";
+}
+
+function saveSettings() {
+	displaySettings();
 }
