@@ -270,7 +270,7 @@ h1 {
 /** Settings Menu  */
 
 #settings-menu {
-	display: block;
+	display: none;
 	position: absolute;
 	left: 34%;
 	bottom: 15%;
@@ -329,4 +329,10 @@ h1 {
 
 .save-settings:hover {
 	transform: scale(1.05);
+}
+
+select {
+	background: none;
+	font-size: 12pt;
+	border: 1px solid #16db93;
 }
