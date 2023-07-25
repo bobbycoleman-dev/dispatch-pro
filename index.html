@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>Dispatch Pro</title>
 </head>
 
@@ -13,9 +14,9 @@
     <nav class="flex">
         <h1>Dispatch Pro</h1>
         <ul class="nav-links flex">
-            <li><a href="index.html" class="flex">
+            <li class="active"><a href="index.html" class="flex">
                     <img src="./icons/calendar.svg" alt="calendar" class="active-img">
-                    <span class="active">Dispatch</span>
+                    <span>Dispatch</span>
                 </a></li>
             <li class="flex"><a href="#" class="flex">
                     <img src="./icons/box.truck.svg" alt="vehicles">
@@ -34,20 +35,23 @@
 
     <main>
         <div class="function-bar flex">
-            <button class="function-bar-btn schedule-btn flex">
-                <img src="./icons/calendar.badge.plus.svg" alt="schedule-delivery">
+            <button class="function-bar-btn schedule-btn flex" onmouseover="activeButton('schedule-btn')"
+                onmouseout="deactivateButton('schedule-btn')">
+                <img src="./icons/calendar.badge.plus.svg" alt="schedule-delivery" id="schedule-btn">
                 Schedule Delivery
             </button>
             <div class="search-bar">
                 <input type="search" name="search" id="search">
                 <img src="./icons/magnifyingglass.svg" alt="search">
             </div>
-            <button class="function-bar-btn map-share-btn flex">
-                <img src="./icons/location.square.svg" alt="map-view">
+            <button class="function-bar-btn map-share-btn flex" onmouseover="activeButton('map-btn')"
+                onmouseout="deactivateButton('map-btn')">
+                <img src="./icons/location.square.svg" alt="map-view" id="map-btn">
                 Map
             </button>
-            <button class="function-bar-btn map-share-btn flex">
-                <img src="./icons/arrow.up.right.square.svg" alt="share">
+            <button class="function-bar-btn map-share-btn flex" onmouseover="activeButton('share-btn')"
+                onmouseout="deactivateButton('share-btn')">
+                <img src="./icons/arrow.up.right.square.svg" alt="share" id="share-btn">
                 Share
             </button>
         </div>
@@ -89,14 +93,251 @@
                 </div>
             </div>
             <div class="schedule">
-                <div class="truck-schedule"></div>
-                <div class="truck-schedule"></div>
-                <div class="truck-schedule"></div>
-                <div class="truck-schedule"></div>
-                <div class="truck-schedule"></div>
-                <div class="truck-schedule"></div>
-                <div class="truck-schedule"></div>
-                <div class="truck-schedule"></div>
+                <div class="truck-schedule">
+                    <p class="truck-num-driver-name">
+                        <span>Truck 1</span>: <span>Driver Name</span>
+                    </p>
+                    <div class="first-runs">
+                        <p class="first-run-header">First Runs</p>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                    </div>
+                    <div class="second-runs">
+                        <p class="second-run-header">Second Runs</p>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="truck-schedule">
+                    <p class="truck-num-driver-name">
+                        <span>Truck 2</span>: <span>Driver Name</span>
+                    </p>
+                    <div class="first-runs">
+                        <p class="first-run-header">First Runs</p>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                    </div>
+                    <div class="second-runs">
+                        <p class="second-run-header">Second Runs</p>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="truck-schedule">
+                    <p class="truck-num-driver-name">
+                        <span>Truck 3</span>: <span>Driver Name</span>
+                    </p>
+                    <div class="first-runs">
+                        <p class="first-run-header">First Runs</p>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                    </div>
+                    <div class="second-runs">
+                        <p class="second-run-header">Second Runs</p>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="truck-schedule">
+                    <p class="truck-num-driver-name">
+                        <span>Truck 4</span>: <span>Driver Name</span>
+                    </p>
+                    <div class="first-runs">
+                        <p class="first-run-header">First Runs</p>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                    </div>
+                    <div class="second-runs">
+                        <p class="second-run-header">Second Runs</p>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                        <div class="stop-num flex">
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                            <div class="delivery-cell"></div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </main>
