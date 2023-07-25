@@ -14,9 +14,9 @@
     <nav class="flex">
         <h1>Dispatch Pro</h1>
         <ul class="nav-links flex">
-            <li class="active"><a href="index.html" class="flex">
-                    <img src="./icons/calendar.svg" alt="calendar" class="active-img">
-                    <span>Dispatch</span>
+            <li><a href="index.html" class="flex">
+                    <img src="./icons/calendar.green.svg" alt="calendar" class="active-img">
+                    <span class="active">Dispatch</span>
                 </a></li>
             <li class="flex"><a href="#" class="flex">
                     <img src="./icons/box.truck.svg" alt="vehicles">
@@ -337,11 +337,68 @@
                     </div>
 
                 </div>
-
             </div>
+            <button class="settings-btn flex" onclick="displaySettings()">
+                <img src="./icons/gearshape.svg" alt="schedule-settings">
+            </button>
         </div>
     </main>
 
+    <div id="settings-menu">
+        <div class="settings-header flex">
+            <p>Schedule Board Settings</p>
+            <button onclick="displaySettings()">X</button>
+        </div>
+        <div class="settings-body flex column justify-sb algn-cntr">
+            <form class="settings-form flex">
+                <div class="flex justify-sb">
+                    <label for="truck-number">Trucks in fleet: </label>
+                    <select name="truck-number" id="select-truck-num">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="flex justify-sb">
+                    <label for="first-run-count">Average 1st run number: </label>
+                    <select name="first-run-count" id="select-first-run-count">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4" selected>4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="flex justify-sb">
+                    <p>Reload for more deliveries? (2nd runs)</p>
+                    <div class="flex algn-cntr gap-10">
+                        <label for="second-runs-yes">Yes</label>
+                        <input type="radio" name="second-runs-yes" id="second-runs-yes" value="Yes" checked>
+                        <label for="second-runs-no">No</label>
+                        <input type="radio" name="second-runs-no" id="second-runs-no" value="No">
+                    </div>
+                </div>
+                <div class="flex justify-sb">
+                    <label for="second-run-count">Average 2nd run number: </label>
+                    <select name="second-run-count" id="select-second-run-count">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+            </form>
+            <button class="save-settings" onclick="displaySettings()">Save</button>
+        </div>
+    </div>
 </body>
 
 </html>

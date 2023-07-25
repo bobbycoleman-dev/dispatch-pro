@@ -10,6 +10,12 @@ let shareIcon = "./icons/arrow.up.right.square.svg";
 let shareIconWhite = "./icons/arrow.up.right.square.white.svg";
 let shareBtn = document.getElementById("share-btn");
 
+var settingsDisplayed = false;
+let settingsMenu = document.getElementById("settings-menu");
+
+let calendarNavIcon = "./icons/calendar.svg";
+let calendarNavIconGreen = "./icons/calendar.green.svg";
+
 function activeButton(id) {
 	switch (document.getElementById(id)) {
 		case scheduleBtn:
@@ -33,5 +39,15 @@ function deactivateButton(id) {
 			break;
 		case shareBtn:
 			shareBtn.src = shareIcon;
+	}
+}
+
+function displaySettings() {
+	if (!settingsDisplayed) {
+		settingsMenu.style.display = "block";
+		settingsDisplayed = true;
+	} else {
+		settingsMenu.style.display = "none";
+		settingsDisplayed = false;
 	}
 }
