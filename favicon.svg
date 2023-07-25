@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="111px" height="103px" viewBox="0 0 111 103" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>DP_Logo</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DP_Logo">
+            <rect id="Rectangle" fill="#474747" x="0" y="0" width="111" height="103" rx="6"></rect>
+            <text id="􁁾" font-family="SFProDisplay-Regular, SF Pro Display" font-size="60" font-weight="normal" fill="#16DB93">
+                <tspan x="5.37304688" y="73">􁁾</tspan>
+            </text>
+            <text id="DP" font-family="ArialRoundedMTBold, Arial Rounded MT Bold" font-size="28" font-weight="normal" fill="#16DB93">
+                <tspan x="21.7988281" y="57">DP</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
