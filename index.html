@@ -4,11 +4,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Dispatch Pro</title>
 </head>
 
 <body>
-    <h1>Dispatch Pro</h1>
+
+    <nav class="flex">
+        <h1>Dispatch Pro</h1>
+        <ul class="nav-links flex">
+            <li><a href="index.html" class="flex">
+                    <img src="./icons/calendar.svg" alt="calendar" class="active-img">
+                    <span class="active">Dispatch</span>
+                </a></li>
+            <li class="flex"><a href="#" class="flex">
+                    <img src="./icons/box.truck.svg" alt="vehicles">
+                    Vehicles
+                </a></li>
+            <li class="flex"><a href="#" class="flex">
+                    <img src="./icons/person.svg" alt="customers">
+                    Customers
+                </a></li>
+            <li class="flex"><a href="#" class="flex">
+                    <img src="./icons/gearshape.svg" alt="account">
+                    Account
+                </a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="function-bar flex">
+            <button class="function-bar-btn schedule-btn flex">
+                <img src="./icons/calendar.badge.plus.svg" alt="schedule-delivery">
+                Schedule Delivery
+            </button>
+            <div class="search-bar">
+                <input type="search" name="search" id="search">
+                <img src="./icons/magnifyingglass.svg" alt="search">
+            </div>
+            <button class="function-bar-btn map-share-btn flex">
+                <img src="./icons/location.square.svg" alt="map-view">
+                Map
+            </button>
+            <button class="function-bar-btn map-share-btn flex">
+                <img src="./icons/arrow.up.right.square.svg" alt="share">
+                Share
+            </button>
+        </div>
+        <div class="schedule-board">
+            <div class="sb-header flex">
+                <p class="flex algn-cntr">
+                    <img src="./icons/chevron.left.svg" alt="previous-week">
+                    previous week
+                </p>
+                <div class="sb-header-mid">
+                    <p class="sb-header-week">Week 30</p>
+                    <p class="sb-header-dates">July 24 - July 30</p>
+                </div>
+                <p class="flex algn-cntr">
+                    next week
+                    <img src="./icons/chevron.right.svg" alt="next-week">
+                </p>
+            </div>
+            <div class="sb-days flex">
+                <div class="day-date">
+                    <p>Monday</p>
+                    <p class="txt-14pt">July 24</p>
+                </div>
+                <div class="day-date">
+                    <p>Tuesday</p>
+                    <p class="txt-14pt">July 25</p>
+                </div>
+                <div class="day-date">
+                    <p>Wednesday</p>
+                    <p class="txt-14pt">July 26</p>
+                </div>
+                <div class="day-date">
+                    <p>Thursday</p>
+                    <p class="txt-14pt">July 27</p>
+                </div>
+                <div class="day-date">
+                    <p>Friday</p>
+                    <p class="txt-14pt">July 28</p>
+                </div>
+            </div>
+            <div class="schedule">
+                <div class="truck-schedule"></div>
+                <div class="truck-schedule"></div>
+                <div class="truck-schedule"></div>
+                <div class="truck-schedule"></div>
+                <div class="truck-schedule"></div>
+                <div class="truck-schedule"></div>
+                <div class="truck-schedule"></div>
+                <div class="truck-schedule"></div>
+            </div>
+        </div>
+    </main>
+
 </body>
 
 </html>
