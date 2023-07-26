@@ -94,67 +94,70 @@
                     <p class="txt-14pt">July 28</p>
                 </div>
             </div>
-            <div class="schedule">
-                <div class="truck-schedule">
+            <div id="schedule-board-layout" class="schedule">
+                <div id="truck-schedule-layout" class="truck-schedule">
                     <p class="truck-num-driver-name">
-                        <span>Truck 1</span>: <span>Driver Name</span>
+                        Truck <span>1</span>: <span>Driver Name</span>
                     </p>
-                    <div class="first-runs">
-                        <p class="first-run-header">First Runs</p>
-                        <div class="stop-num flex">
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                        </div>
-                        <div class="stop-num flex">
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                        </div>
-                        <div class="stop-num flex">
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                        </div>
-                        <div class="stop-num flex">
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                        </div>
-                    </div>
-                    <div class="second-runs">
-                        <p class="second-run-header">Second Runs</p>
-                        <div class="stop-num flex">
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                        </div>
-                        <div class="stop-num flex">
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                        </div>
-                        <div class="stop-num flex">
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
-                            <div class="delivery-cell"></div>
+                    <div class="first-runs" id="first-runs-top-level">
+                        <p class="first-run-header" id="first-runs-header">First Runs</p>
+                        <div id="first-run-cell-count">
+                            <div class="stop-num flex" id="stop-num-cell">
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                            </div>
+                            <div class="stop-num flex">
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                            </div>
+                            <div class="stop-num flex">
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                            </div>
+                            <div class="stop-num flex">
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                            </div>
                         </div>
                     </div>
-
+                    <div class="second-runs" id="second-runs-top-level">
+                        <p class="second-run-header" id="second-runs-header">Second Runs</p>
+                        <div id="second-run-cell-count">
+                            <div class="stop-num flex">
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                            </div>
+                            <div class="stop-num flex">
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                            </div>
+                            <div class="stop-num flex">
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                                <div class="delivery-cell"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="truck-schedule">
                     <p class="truck-num-driver-name">
@@ -381,10 +384,10 @@
                     <p>Reload for more deliveries? (2nd runs)</p>
                     <div class="flex algn-cntr gap-10">
                         <label for="second-runs-yes">Yes</label>
-                        <input type="radio" name="second-runs-yes" id="second-runs-yes" value="Yes"
+                        <input type="radio" name="second-runs-yes" id="second-runs-yes" value="true"
                             onclick="activateSecondRuns()" checked>
                         <label for="second-runs-no">No</label>
-                        <input type="radio" name="second-runs-no" id="second-runs-no" value="No"
+                        <input type="radio" name="second-runs-no" id="second-runs-no" value=""
                             onclick="deactivateSecondRuns()">
                     </div>
                 </div>
