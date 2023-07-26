@@ -37,7 +37,7 @@
     <main>
         <div class="function-bar flex">
             <button class="function-bar-btn schedule-btn flex" onmouseover="activeButton('schedule-btn')"
-                onmouseout="deactivateButton('schedule-btn')">
+                onmouseout="deactivateButton('schedule-btn')" onclick="displayScheduler()">
                 <img src="./icons/calendar.badge.plus.svg" alt="schedule-delivery" id="schedule-btn">
                 Schedule Delivery
             </button>
@@ -58,7 +58,7 @@
         </div>
         <div class="schedule-board">
             <div class="sb-header flex">
-                <p class="flex algn-cntr">
+                <p class="previous-week flex algn-cntr">
                     <img src="./icons/chevron.left.svg" alt="previous-week">
                     previous week
                 </p>
@@ -66,7 +66,7 @@
                     <p class="sb-header-week">Week 30</p>
                     <p class="sb-header-dates">July 24 - July 30</p>
                 </div>
-                <p class="flex algn-cntr">
+                <p class="next-week flex algn-cntr">
                     next week
                     <img src="./icons/chevron.right.svg" alt="next-week">
                 </p>
@@ -221,6 +221,44 @@
             </form>
             <button class="save-settings" onclick="saveSettings()">Save</button>
         </div>
+    </div>
+
+    <div id="schedule-del-menu">
+        <div class="settings-header flex">
+            <p>Schedule Delivery</p>
+            <button onclick="displayScheduler()">X</button>
+        </div>
+        <div class="settings-body flex column justify-sb algn-cntr">
+            <form class="settings-form flex">
+                <label for="date">Delivery Date</label>
+                <input type="date" name="date" id="delivery-date">
+                <label for="truck-select">Delivery Truck</label>
+                <select name="truck-select" id="truck-select">
+                    <option value="1">Truck 1</option>
+                    <option value="2">Truck 2</option>
+                    <option value="3">Truck 3</option>
+                    <option value="4">Truck 4</option>
+                </select>
+                <label for="stop-select">Stop Number</label>
+                <select name="stop-select" id="stop-select">
+                    <option value="1">Stop 1</option>
+                    <option value="2">Stop 2</option>
+                    <option value="3">Stop 3</option>
+                    <option value="4">Stop 4</option>
+                    <option value="5">Stop 5</option>
+                </select>
+                <label for="customer-select">Customer</label>
+                <select name="customer-select" id="customer-select">
+
+                </select>
+                <label for="city-select">City</label>
+                <select name="city-select" id="city-select">
+
+                </select>
+            </form>
+            <button class="save-settings" onclick="displayScheduler()">Schedule Delivery</button>
+        </div>
+
     </div>
 </body>
 

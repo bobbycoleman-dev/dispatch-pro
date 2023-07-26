@@ -13,6 +13,9 @@ let shareBtn = document.getElementById("share-btn");
 var settingsDisplayed = false;
 let settingsMenu = document.getElementById("settings-menu");
 
+var schedulerDisplayed = false;
+let scheduleDelivery = document.getElementById("schedule-del-menu");
+
 let calendarNavIcon = "./icons/calendar.svg";
 let calendarNavIconGreen = "./icons/calendar.green.svg";
 
@@ -68,6 +71,16 @@ function displaySettings() {
 	} else {
 		settingsMenu.style.display = "none";
 		settingsDisplayed = false;
+	}
+}
+
+function displayScheduler() {
+	if (!schedulerDisplayed) {
+		scheduleDelivery.style.display = "block";
+		schedulerDisplayed = true;
+	} else {
+		scheduleDelivery.style.display = "none";
+		schedulerDisplayed = false;
 	}
 }
 
@@ -195,3 +208,41 @@ function buildScheduleBoard(
 		truckNumberOutput[i].innerHTML = i + 1;
 	}
 }
+
+let customerSelect = document.getElementById("customer-select");
+let citySelect = document.getElementById("city-select");
+customerSelect.length = 0;
+citySelect.length = 0;
+
+let defaultCustomerOption = document.createElement("option");
+let defaultCityOption = document.createElement("option");
+defaultCustomerOption.text = "Choose Customer";
+defaultCityOption.text = "Choose City";
+
+customerSelect.add(defaultCustomerOption);
+citySelect.add(defaultCityOption);
+customerSelect.selectedIndex = 0;
+citySelect.selectedIndex = 0;
+
+const url = "https://jsonplaceholder.typicode.com/users";
+
+async function getCustomerData() {
+	var response = await fetch(url);
+	var customerData = await response.json();
+	var customer;
+	for (var i = 0; i < customerData.length; i++) {
+		customer = document.createElement("option");
+		customer.text = customerData[i].name;
+		customer.value = customerData[i].id;
+		customerSelect.add(customer);
+	}
+	var city;
+	for (var i = 0; i < customerData.length; i++) {
+		city = document.createElement("option");
+		city.text = customerData[i].address.city;
+		city.value = customerData[i].address.zipcode;
+		citySelect.add(city);
+	}
+}
+
+getCustomerData();

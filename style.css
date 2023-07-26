@@ -171,6 +171,14 @@ h1 {
 	text-align: center;
 }
 
+.previous-week {
+	cursor: pointer;
+}
+
+.next-week {
+	cursor: pointer;
+}
+
 .sb-header-week {
 	color: #16db93;
 	font-size: 18pt;
@@ -266,13 +274,13 @@ h1 {
 	height: 30px;
 }
 
-/*! Settings Menu  */
+/*! Settings Menu Modal  */
 #settings-menu {
 	display: none;
 	position: absolute;
 	left: 34%;
-	bottom: 15%;
-	height: 500px;
+	bottom: 25%;
+	height: 350px;
 	width: 450px;
 	border-radius: 10px;
 	background-color: white;
@@ -320,6 +328,7 @@ h1 {
 	height: 50px;
 	border: none;
 	border-radius: 10px;
+	margin-bottom: 10px;
 	box-shadow: 2px 4px 10px 3px rgb(0, 0, 0, 0.5);
 	cursor: pointer;
 	transition: transform 200ms ease-in-out;
@@ -333,4 +342,22 @@ select {
 	background: none;
 	font-size: 12pt;
 	border: 1px solid #16db93;
+}
+
+/*! Schedule Delivery Modal  */
+#schedule-del-menu {
+	display: none;
+	position: absolute;
+	left: 34%;
+	bottom: 10%;
+	height: 580px;
+	width: 450px;
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: -4px 8px 10px 3px rgb(0, 0, 0, 0.5);
+	box-shadow: 4px 8px 10px 3px rgb(0, 0, 0, 0.5);
+}
+
+#delivery-date {
+	font-size: 14pt;
 }
