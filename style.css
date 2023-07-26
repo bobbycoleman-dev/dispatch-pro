@@ -52,7 +52,7 @@ body {
 	font-size: 14pt;
 }
 
-/** Navigation bar */
+/*! Navigation bar */
 nav {
 	background-color: #474747;
 	height: 80px;
@@ -88,9 +88,9 @@ h1 {
 	color: #16db93;
 }
 
-/** Main */
+/*! Main */
 
-/** Function Bar  */
+/*! Function Bar  */
 .function-bar {
 	align-items: center;
 	justify-content: space-between;
@@ -146,8 +146,7 @@ h1 {
 	width: 120px;
 }
 
-/** Schedule Board */
-
+/*! Schedule Board */
 .schedule-board {
 	width: 1340px;
 	height: 880px;
@@ -267,8 +266,7 @@ h1 {
 	height: 30px;
 }
 
-/** Settings Menu  */
-
+/*! Settings Menu  */
 #settings-menu {
 	display: none;
 	position: absolute;
