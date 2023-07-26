@@ -24,10 +24,16 @@ let secondRunCellCount = document.getElementById("select-second-run-count");
 let secondRunCellLabel = document.getElementById("select-second-run-label");
 var secondRunHeader = document.getElementById("second-runs-header").outerHTML;
 
+var truckNumAndName = document.querySelector(
+	".truck-num-driver-name"
+).outerHTML;
+
 var truckCount = 4;
 var firstRunCount = 4;
 var secondRunCount = 3;
 var addSecondRuns = true;
+
+buildScheduleBoard(truckCount, firstRunCount, addSecondRuns, secondRunCount);
 
 function activeButton(id) {
 	switch (document.getElementById(id)) {
@@ -111,21 +117,15 @@ function saveSettings() {
 	);
 }
 
-console.log(secondRunCells.innerHTML);
-
 function buildScheduleBoard(
 	truckNum,
 	firstRunNum,
 	secondRunBool,
 	secondRunNum
 ) {
-	console.log(truckNum, firstRunNum, secondRunBool, secondRunNum);
-
 	var scheduleBoard = document.getElementById("schedule-board-layout");
 	var truckSchedule = document.getElementById("truck-schedule-layout");
-	var truckNumAndName = document.querySelector(
-		".truck-num-driver-name"
-	).outerHTML;
+
 	var truckScheduleTopLevel = "";
 	var truckNumOutput = "";
 
@@ -141,7 +141,7 @@ function buildScheduleBoard(
 	var stopNumCell = document.getElementById("stop-num-cell").outerHTML;
 
 	if (secondRunBool) {
-		for (i = 1; i <= firstRunNum; i++) {
+		for (var i = 1; i <= firstRunNum; i++) {
 			firstRunNumOutput += stopNumCell;
 		}
 		firstRunCells.innerHTML = firstRunNumOutput;
@@ -150,7 +150,7 @@ function buildScheduleBoard(
 		firstRunTopLevel += firstRunCells.outerHTML;
 		firstRuns.innerHTML = firstRunTopLevel;
 
-		for (i = 1; i <= secondRunNum; i++) {
+		for (var i = 1; i <= secondRunNum; i++) {
 			secondRunNumOutput += stopNumCell;
 		}
 
@@ -165,11 +165,11 @@ function buildScheduleBoard(
 		truckScheduleTopLevel += secondRuns.outerHTML;
 		truckSchedule.innerHTML = truckScheduleTopLevel;
 
-		for (i = 1; i <= truckNum; i++) {
+		for (var i = 1; i <= truckNum; i++) {
 			truckNumOutput += truckSchedule.outerHTML;
 		}
 	} else {
-		for (i = 1; i <= firstRunNum; i++) {
+		for (var i = 1; i <= firstRunNum; i++) {
 			firstRunNumOutput += stopNumCell;
 		}
 
@@ -183,10 +183,15 @@ function buildScheduleBoard(
 		truckScheduleTopLevel += firstRuns.outerHTML;
 		truckSchedule.innerHTML = truckScheduleTopLevel;
 
-		for (i = 1; i <= truckNum; i++) {
+		for (var i = 1; i <= truckNum; i++) {
 			truckNumOutput += truckSchedule.outerHTML;
 		}
 	}
 
 	scheduleBoard.innerHTML = truckNumOutput;
+
+	var truckNumberOutput = document.querySelectorAll(".truck-num");
+	for (var i = 0; i <= truckNumberOutput.length - 1; i++) {
+		truckNumberOutput[i].innerHTML = i + 1;
+	}
 }
