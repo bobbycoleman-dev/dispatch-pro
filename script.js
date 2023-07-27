@@ -248,15 +248,21 @@ async function getCustomerData() {
 getCustomerData();
 
 dragElement(document.getElementById("settings-gear"));
+dragElement(document.getElementById("schedule-del-menu"));
 
 function dragElement(elmnt) {
 	var pos1 = 0,
 		pos2 = 0,
 		pos3 = 0,
 		pos4 = 0;
-	if (document.getElementById("settings-gear")) {
+	if (
+		document.getElementById("settings-gear") ||
+		document.getElementById("schedule-del-header")
+	) {
 		// if present, the header is where you move the DIV from:
 		document.getElementById("settings-gear").onmousedown = dragMouseDown;
+		document.getElementById("schedule-del-menu").onmousedown =
+			dragMouseDown;
 	} else {
 		// otherwise, move the DIV from anywhere inside the DIV:
 		elmnt.onmousedown = dragMouseDown;

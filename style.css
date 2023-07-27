@@ -363,3 +363,7 @@ select {
 #delivery-date {
 	font-size: 14pt;
 }
+
+#schedule-del-header {
+	cursor: move;
+}
