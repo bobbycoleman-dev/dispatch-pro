@@ -248,7 +248,6 @@ async function getCustomerData() {
 getCustomerData();
 
 dragSettingsButton(document.getElementById("settings-gear"));
-dragElement(document.getElementById("schedule-del-menu"));
 
 function dragSettingsButton(elmnt) {
 	var pos1 = 0,
@@ -292,6 +291,8 @@ function dragSettingsButton(elmnt) {
 		document.onmousemove = null;
 	}
 }
+
+dragElement(document.getElementById("schedule-del-menu"));
 function dragElement(elmnt) {
 	var pos1 = 0,
 		pos2 = 0,
