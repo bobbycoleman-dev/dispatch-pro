@@ -350,6 +350,7 @@ select {
 #schedule-del-menu {
 	display: none;
 	position: absolute;
+	z-index: 9;
 	left: 34%;
 	bottom: 10%;
 	height: 580px;
