@@ -228,17 +228,18 @@ h1 {
 	text-align: center;
 	background-color: #9fdc89;
 	padding: 3px;
+	color: white;
 }
 
 .first-run-header {
 	text-align: center;
-	background-color: #ff997c;
+	background-color: #d5efca;
 	padding: 3px;
 }
 
 .second-run-header {
 	text-align: center;
-	background-color: #93acf2;
+	background-color: #adb8d9;
 	padding: 3px;
 }
 
@@ -246,6 +247,12 @@ h1 {
 	height: 28px;
 	width: 100%;
 	border: 1px solid #979797;
+}
+
+.horizontal-break {
+	background-color: #474747;
+	height: 10px;
+	width: 100%;
 }
 
 #settings-gear,

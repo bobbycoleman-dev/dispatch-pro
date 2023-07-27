@@ -77,9 +77,13 @@ function displaySettings() {
 function displayScheduler() {
 	if (!schedulerDisplayed) {
 		scheduleDelivery.style.display = "block";
+		scheduleDelivery.style.left = "34%";
+		scheduleDelivery.style.bottom = "10%";
 		schedulerDisplayed = true;
 	} else {
 		scheduleDelivery.style.display = "none";
+		scheduleDelivery.style.left = "34%";
+		scheduleDelivery.style.bottom = "10%";
 		schedulerDisplayed = false;
 	}
 }
@@ -180,6 +184,7 @@ function buildScheduleBoard(
 
 		for (var i = 1; i <= truckNum; i++) {
 			truckNumOutput += truckSchedule.outerHTML;
+			truckNumOutput += "<div class='horizontal-break'></div>";
 		}
 	} else {
 		for (var i = 1; i <= firstRunNum; i++) {
@@ -198,14 +203,38 @@ function buildScheduleBoard(
 
 		for (var i = 1; i <= truckNum; i++) {
 			truckNumOutput += truckSchedule.outerHTML;
+			truckNumOutput += "<div class='horizontal-break'></div>";
 		}
 	}
 
 	scheduleBoard.innerHTML = truckNumOutput;
 
 	var truckNumberOutput = document.querySelectorAll(".truck-num");
+	var truckNumAndNameColor = document.querySelectorAll(
+		".truck-num-driver-name"
+	);
 	for (var i = 0; i <= truckNumberOutput.length - 1; i++) {
 		truckNumberOutput[i].innerHTML = i + 1;
+		switch (i) {
+			case 0:
+				truckNumAndNameColor[i].style.backgroundColor = "green";
+				break;
+			case 1:
+				truckNumAndNameColor[i].style.backgroundColor = "blue";
+				break;
+			case 2:
+				truckNumAndNameColor[i].style.backgroundColor = "red";
+				break;
+			case 3:
+				truckNumAndNameColor[i].style.backgroundColor = "orange";
+				break;
+			case 4:
+				truckNumAndNameColor[i].style.backgroundColor = "yellow";
+				truckNumAndNameColor[i].style.color = "black";
+				break;
+			case 5:
+				truckNumAndNameColor[i].style.backgroundColor = "purple";
+		}
 	}
 }
 
@@ -338,3 +367,210 @@ function dragElement(elmnt) {
 		document.onmousemove = null;
 	}
 }
+
+function getDateRangeOfWeek(weekNo) {
+	var d1 = new Date();
+	numOfdaysPastSinceLastMonday = eval(d1.getDay() - 1);
+	d1.setDate(d1.getDate() - numOfdaysPastSinceLastMonday);
+	var weekNoToday = d1.getWeek();
+	var weeksInTheFuture = eval(weekNo - weekNoToday);
+	d1.setDate(d1.getDate() + eval(7 * weeksInTheFuture));
+	var rangeIsFrom =
+		eval(d1.getMonth() + 1) + "/" + d1.getDate() + "/" + d1.getFullYear();
+	d1.setDate(d1.getDate() + 6);
+	var rangeIsTo =
+		eval(d1.getMonth() + 1) + "/" + d1.getDate() + "/" + d1.getFullYear();
+	return [rangeIsFrom, rangeIsTo];
+}
+
+Date.prototype.getWeek = function () {
+	// Create a copy of this date object
+	var target = new Date(this.valueOf());
+
+	// ISO week date weeks start on monday, so correct the day number
+	var dayNr = (this.getDay() + 6) % 7;
+
+	// Set the target to the thursday of this week so the
+	// target date is in the right year
+	target.setDate(target.getDate() - dayNr + 3);
+
+	// ISO 8601 states that week 1 is the week with january 4th in it
+	var jan4 = new Date(target.getFullYear(), 0, 4);
+
+	// Number of days between target date and january 4th
+	var dayDiff = (target - jan4) / 86400000;
+
+	if (new Date(target.getFullYear(), 0, 1).getDay() < 5) {
+		// Calculate week number: Week 1 (january 4th) plus the
+		// number of weeks between target date and january 4th
+		return 1 + Math.ceil(dayDiff / 7);
+	} else {
+		// jan 4th is on the next week (so next week is week 1)
+		return Math.ceil(dayDiff / 7);
+	}
+};
+
+function convertToMonthName(monthNum) {
+	var monthName = "";
+	switch (monthNum) {
+		case 0:
+			monthName = "January";
+			break;
+		case 1:
+			monthName = "February";
+			break;
+		case 2:
+			monthName = "March";
+			break;
+		case 3:
+			monthName = "April";
+			break;
+		case 4:
+			monthName = "May";
+			break;
+		case 5:
+			monthName = "June";
+			break;
+		case 6:
+			monthName = "July";
+			break;
+		case 7:
+			monthName = "August";
+			break;
+		case 8:
+			monthName = "September";
+			break;
+		case 9:
+			monthName = "October";
+			break;
+		case 10:
+			monthName = "November";
+			break;
+		case 11:
+			monthName = "December";
+	}
+	return monthName;
+}
+
+class ScheduleBoard {
+	static weekList = [];
+	constructor(weekNumber, startDate, endDate) {
+		this.weekNumber = weekNumber;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+		this.numOfTrucks = [];
+		ScheduleBoard.weekList.push(this);
+	}
+	static weekNum = 31;
+	// new Date().getWeek();
+	createWeeks() {
+		for (var i = 1; i < 54; i++) {
+			new ScheduleBoard(
+				i,
+				getDateRangeOfWeek(i)[0],
+				getDateRangeOfWeek(i)[1]
+			);
+		}
+	}
+	displaySBHeader() {
+		var sbHeader = `
+			<p class="previous-week flex algn-cntr">
+                <img src="./icons/chevron.left.svg" alt="previous-week">
+                previous week
+            </p>
+            <div class="sb-header-mid">
+                <p class="sb-header-week">Week ${
+					ScheduleBoard.weekList[ScheduleBoard.weekNum].weekNumber
+				}</p>
+                <p class="sb-header-dates">${
+					convertToMonthName(new Date().getMonth()) +
+					" " +
+					new Date(
+						ScheduleBoard.weekList[ScheduleBoard.weekNum].startDate
+					).getDate()
+				} - ${
+			convertToMonthName(new Date().getMonth()) +
+			" " +
+			(new Date(
+				ScheduleBoard.weekList[ScheduleBoard.weekNum].endDate
+			).getDate() -
+				2)
+		}</p>
+            </div>
+            <p class="next-week flex algn-cntr">
+                next week
+                <img src="./icons/chevron.right.svg" alt="next-week">
+            </p>
+		`;
+		document.querySelector(".sb-header").innerHTML = sbHeader;
+	}
+	displayDaysOfWeek() {
+		var tempString = "";
+		for (var i = 0; i < this.days.length; i++) {
+			tempString += ` 
+			<div class="day-date">
+				<p>${this.days[i]}</p>
+				<p class="txt-14pt">${
+					convertToMonthName(new Date().getMonth()) +
+					" " +
+					(new Date(
+						ScheduleBoard.weekList[ScheduleBoard.weekNum].startDate
+					).getDate() +
+						i)
+				}</p>
+			</div>`;
+		}
+		document.querySelector(".sb-days").innerHTML = tempString;
+	}
+	displayTruck() {
+		var newTruck = ``;
+		for (var i = 1; i <= truckCount; i++) {
+			newTruck += new Truck(i, i);
+		}
+		document.getElementById("truck-schedule-layout").innerHTML = newTruck;
+	}
+}
+
+class Truck {
+	constructor(driverName, number) {
+		this.driverName = driverName;
+		this.number = number;
+	}
+	createTruck() {
+		var truckLayout = `
+		<p class="truck-num-driver-name">
+            Truck <span class="truck-num">${Truck.number}</span>: <span>${Truck.driverName}</span>
+        </p>`;
+		truckLayout += Truck.createFirstRunStops();
+		document.getElementById("truck-schedule-layout").innerHTML =
+			truckLayout;
+	}
+	createFirstRunStops() {
+		var output = document.getElementById("first-runs-top-level");
+		let stopRow = `
+		<p class="first-run-header" id="first-runs-header">First Runs</p>
+		<div id="first-run-cell-count">
+		`;
+		for (var i = 1; i <= firstRunCount; i++) {
+			stopRow += `
+			<div class="stop-num flex" id="stop-num-cell">
+				<div class="delivery-cell"></div>
+				<div class="delivery-cell"></div>
+				<div class="delivery-cell"></div>
+				<div class="delivery-cell"></div>
+				<div class="delivery-cell"></div>
+			</div>
+			`;
+		}
+		stopRow += `</div>`;
+		output.innerHTML = stopRow;
+		return output.outerHTML;
+	}
+}
+
+const sb = new ScheduleBoard();
+sb.createWeeks();
+sb.displayDaysOfWeek();
+sb.displaySBHeader();
+sb.displayTruck();
