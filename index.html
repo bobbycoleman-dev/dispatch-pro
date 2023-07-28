@@ -59,7 +59,7 @@
             </button>
         </div>
         <!--! SCHEDULE BOARD -->
-        <div class="schedule-board">
+        <div class="schedule-board" onclick="console.log('test')">
             <!--! SCHEDULE BOARD HEADER  -->
             <div class="sb-header flex">
                 <!-- <p class="previous-week flex algn-cntr">
@@ -100,33 +100,11 @@
             </div>
             <!--! INNER SCHEDULE BOARD -->
             <div id="schedule-board-layout" class="schedule">
+
                 <!-- ! TRUCK SCHEDULE LAYOUT -->
                 <div id="truck-schedule-layout" class="truck-schedule">
-                    <!--* HEADER W/ TRUCK NUMBER AND DRIVER NAME  -->
-                    <p class="truck-num-driver-name">
-                        Truck <span class="truck-num">1</span>: <span>Driver Name</span>
-                    </p>
-                    <!--* FIRST RUN SECTION -->
-                    <div class="first-runs" id="first-runs-top-level">
-                        <p class="first-run-header" id="first-runs-header">First Runs</p>
-                        <div id="first-run-cell-count">
-                            <!--* FIRST RUN FIRST STOP CELLS M-F (MULTIPLY FOR MULTIPLE STOPS) -->
-                            <div class="stop-num flex" id="stop-num-cell">
-                                <div class="delivery-cell"></div>
-                                <div class="delivery-cell"></div>
-                                <div class="delivery-cell"></div>
-                                <div class="delivery-cell"></div>
-                                <div class="delivery-cell"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--* SECOND RUN SECTION -->
-                    <div class="second-runs" id="second-runs-top-level">
-                        <p class="second-run-header" id="second-runs-header">Second Runs</p>
-                        <div id="second-run-cell-count">
-                            <!--* ADD STOP CELLS HERE FOR M-F -->
-                        </div>
-                    </div>
+                    <div class="first-runs" id="first-runs-top-level"></div>
+                    <div class="second-runs" id="second-runs-top-level"></div>
                 </div>
             </div>
             <button class="settings-btn flex" ondblclick="displaySettings()" id="settings-gear">
@@ -154,7 +132,7 @@
                         <option value="6">6</option>
                     </select>
                 </div>
-                <hr>
+                <!-- <hr>
                 <div class="flex justify-sb">
                     <label for="first-run-count">Average 1st run number: </label>
                     <select name="first-run-count" id="select-first-run-count">
@@ -165,8 +143,8 @@
                         <option value="5">5</option>
                         <option value="6">6</option>
                     </select>
-                </div>
-                <hr>
+                </div> -->
+                <!-- <hr>
                 <div class="flex justify-sb">
                     <p>Reload for more deliveries? (2nd runs)</p>
                     <div class="flex algn-cntr gap-10">
@@ -177,9 +155,66 @@
                         <input type="radio" name="second-runs-no" id="second-runs-no" value=""
                             onclick="deactivateSecondRuns()">
                     </div>
+                </div> -->
+                <!-- <div class="flex justify-sb">
+                    <label for="second-run-count" id="select-second-run-label">Average 2nd run number: </label>
+                    <select name="second-run-count" id="select-second-run-count">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div> -->
+            </form>
+            <button class="save-settings" onclick="saveSettings()">Save</button>
+        </div>
+    </div>
+    <div id="truck-settings-menu">
+        <div class="settings-header flex">
+            <p>Truck Schedule Settings</p>
+            <button onclick="displayTruckSettings()">X</button>
+        </div>
+        <div class="settings-body flex column justify-sb algn-cntr">
+            <form class="settings-form flex">
+                <!-- <div class="flex justify-sb">
+                    <label for="truck-number">Trucks in fleet: </label>
+                    <select name="truck-number" id="select-truck-num">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4" selected>4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div> -->
+                <!-- <hr> -->
+                <div class="flex justify-sb">
+                    <label for="first-run-count">First Run Stops: </label>
+                    <select name="first-run-count" id="select-first-run-count">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4" selected>4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+
+                <div class="flex justify-sb">
+                    <p>Add Second Runs?</p>
+                    <div class="flex algn-cntr gap-10">
+                        <label for="second-runs-yes">Yes</label>
+                        <input type="radio" name="second-runs-yes" id="second-runs-yes" value="true"
+                            onclick="activateSecondRuns()" checked>
+                        <label for="second-runs-no">No</label>
+                        <input type="radio" name="second-runs-no" id="second-runs-no" value=""
+                            onclick="deactivateSecondRuns()">
+                    </div>
                 </div>
                 <div class="flex justify-sb">
-                    <label for="second-run-count" id="select-second-run-label">Average 2nd run number: </label>
+                    <label for="second-run-count" id="select-second-run-label">Second Run Stops: </label>
                     <select name="second-run-count" id="select-second-run-count">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -190,7 +225,7 @@
                     </select>
                 </div>
             </form>
-            <button class="save-settings" onclick="saveSettings()">Save</button>
+            <button class="save-truck-settings" onclick="Truck.saveTruckSettings()">Save</button>
         </div>
     </div>
 

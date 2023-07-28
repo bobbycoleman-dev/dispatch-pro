@@ -238,6 +238,27 @@ main {
 	background-color: #9fdc89;
 	padding: 3px;
 	color: white;
+	cursor: pointer;
+}
+
+.color1 {
+	background-color: green;
+}
+.color2 {
+	background-color: blue;
+}
+.color3 {
+	background-color: red;
+}
+.color4 {
+	background-color: orange;
+}
+.color5 {
+	background-color: yellow;
+	color: black;
+}
+.color6 {
+	background-color: purple;
 }
 
 .first-run-header {
@@ -320,7 +341,8 @@ main {
 /* Show the tooltip text when you mouse over the tooltip container */
 
 /*! Settings Menu Modal  */
-#settings-menu {
+#settings-menu,
+#truck-settings-menu {
 	display: none;
 	position: absolute;
 	left: 37%;
@@ -365,7 +387,8 @@ main {
 	gap: 20px;
 }
 
-.save-settings {
+.save-settings,
+.save-truck-settings {
 	background-color: #16db93;
 	color: white;
 	font-size: 24pt;

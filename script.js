@@ -13,6 +13,9 @@ let shareBtn = document.getElementById("share-btn");
 var settingsDisplayed = false;
 let settingsMenu = document.getElementById("settings-menu");
 
+var truckSettingsDisplayed = false;
+let truckSettingsMenu = document.getElementById("truck-settings-menu");
+
 var schedulerDisplayed = false;
 let scheduleDelivery = document.getElementById("schedule-del-menu");
 
@@ -25,18 +28,11 @@ var secondRunCells = document.getElementById("second-run-cell-count");
 var secondRuns = document.getElementById("second-runs-top-level");
 let secondRunCellCount = document.getElementById("select-second-run-count");
 let secondRunCellLabel = document.getElementById("select-second-run-label");
-var secondRunHeader = document.getElementById("second-runs-header").outerHTML;
 
-var truckNumAndName = document.querySelector(
-	".truck-num-driver-name"
-).outerHTML;
-
-var truckCount = 4;
-var firstRunCount = 4;
-var secondRunCount = 3;
+// var truckCount = 4;
+// var firstRunCount = 3;
+// var secondRunCount = 2;
 var addSecondRuns = true;
-
-buildScheduleBoard(truckCount, firstRunCount, addSecondRuns, secondRunCount);
 
 function activeButton(id) {
 	switch (document.getElementById(id)) {
@@ -74,6 +70,16 @@ function displaySettings() {
 	}
 }
 
+function displayTruckSettings(element) {
+	if (!truckSettingsDisplayed) {
+		truckSettingsMenu.style.display = "block";
+		truckSettingsDisplayed = true;
+	} else {
+		truckSettingsMenu.style.display = "none";
+		truckSettingsDisplayed = false;
+	}
+}
+
 function displayScheduler() {
 	if (!schedulerDisplayed) {
 		scheduleDelivery.style.display = "block";
@@ -102,141 +108,7 @@ function deactivateSecondRuns() {
 	secondRunCellLabel.style.display = "none";
 }
 
-function saveSettings() {
-	var truckNumber = document.getElementById("select-truck-num").value;
-	truckCount = truckNumber;
-
-	var firstRunNumber = document.getElementById(
-		"select-first-run-count"
-	).value;
-	firstRunCount = firstRunNumber;
-
-	var secondRunNumber = document.getElementById(
-		"select-second-run-count"
-	).value;
-	secondRunCount = secondRunNumber;
-
-	if (noSecondRuns.checked) {
-		addSecondRuns = false;
-	}
-	if (yesSecondRuns.checked) {
-		addSecondRuns = true;
-	}
-
-	console.log(addSecondRuns);
-
-	displaySettings();
-	buildScheduleBoard(
-		truckCount,
-		firstRunCount,
-		addSecondRuns,
-		secondRunCount
-	);
-}
-
-function buildScheduleBoard(
-	truckNum,
-	firstRunNum,
-	secondRunBool,
-	secondRunNum
-) {
-	var scheduleBoard = document.getElementById("schedule-board-layout");
-	var truckSchedule = document.getElementById("truck-schedule-layout");
-
-	var truckScheduleTopLevel = "";
-	var truckNumOutput = "";
-
-	var firstRuns = document.getElementById("first-runs-top-level");
-	var firstRunHeader = document.getElementById("first-runs-header").outerHTML;
-	var firstRunCells = document.getElementById("first-run-cell-count");
-	var firstRunNumOutput = "";
-	var firstRunTopLevel = "";
-
-	var secondRunNumOutput = "";
-	var secondRunTopLevel = "";
-
-	var stopNumCell = document.getElementById("stop-num-cell").outerHTML;
-
-	if (secondRunBool) {
-		for (var i = 1; i <= firstRunNum; i++) {
-			firstRunNumOutput += stopNumCell;
-		}
-		firstRunCells.innerHTML = firstRunNumOutput;
-
-		firstRunTopLevel += firstRunHeader;
-		firstRunTopLevel += firstRunCells.outerHTML;
-		firstRuns.innerHTML = firstRunTopLevel;
-
-		for (var i = 1; i <= secondRunNum; i++) {
-			secondRunNumOutput += stopNumCell;
-		}
-
-		secondRunCells.innerHTML = secondRunNumOutput;
-
-		secondRunTopLevel += secondRunHeader;
-		secondRunTopLevel += secondRunCells.outerHTML;
-		secondRuns.innerHTML = secondRunTopLevel;
-
-		truckScheduleTopLevel += truckNumAndName;
-		truckScheduleTopLevel += firstRuns.outerHTML;
-		truckScheduleTopLevel += secondRuns.outerHTML;
-		truckSchedule.innerHTML = truckScheduleTopLevel;
-
-		for (var i = 1; i <= truckNum; i++) {
-			truckNumOutput += truckSchedule.outerHTML;
-			truckNumOutput += "<div class='horizontal-break'></div>";
-		}
-	} else {
-		for (var i = 1; i <= firstRunNum; i++) {
-			firstRunNumOutput += stopNumCell;
-		}
-
-		firstRunCells.innerHTML = firstRunNumOutput;
-
-		firstRunTopLevel += firstRunHeader;
-		firstRunTopLevel += firstRunCells.outerHTML;
-		firstRuns.innerHTML = firstRunTopLevel;
-
-		truckScheduleTopLevel += truckNumAndName;
-		truckScheduleTopLevel += firstRuns.outerHTML;
-		truckSchedule.innerHTML = truckScheduleTopLevel;
-
-		for (var i = 1; i <= truckNum; i++) {
-			truckNumOutput += truckSchedule.outerHTML;
-			truckNumOutput += "<div class='horizontal-break'></div>";
-		}
-	}
-
-	scheduleBoard.innerHTML = truckNumOutput;
-
-	var truckNumberOutput = document.querySelectorAll(".truck-num");
-	var truckNumAndNameColor = document.querySelectorAll(
-		".truck-num-driver-name"
-	);
-	for (var i = 0; i <= truckNumberOutput.length - 1; i++) {
-		truckNumberOutput[i].innerHTML = i + 1;
-		switch (i) {
-			case 0:
-				truckNumAndNameColor[i].style.backgroundColor = "green";
-				break;
-			case 1:
-				truckNumAndNameColor[i].style.backgroundColor = "blue";
-				break;
-			case 2:
-				truckNumAndNameColor[i].style.backgroundColor = "red";
-				break;
-			case 3:
-				truckNumAndNameColor[i].style.backgroundColor = "orange";
-				break;
-			case 4:
-				truckNumAndNameColor[i].style.backgroundColor = "yellow";
-				truckNumAndNameColor[i].style.color = "black";
-				break;
-			case 5:
-				truckNumAndNameColor[i].style.backgroundColor = "purple";
-		}
-	}
-}
+function saveTruckSettings() {}
 
 let customerSelect = document.getElementById("customer-select");
 let citySelect = document.getElementById("city-select");
@@ -454,10 +326,11 @@ function convertToMonthName(monthNum) {
 
 class ScheduleBoard {
 	static weekList = [];
-	constructor(weekNumber, startDate, endDate) {
+	constructor(weekNumber, startDate, endDate, truckTotal) {
 		this.weekNumber = weekNumber;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.truckTotal = truckTotal;
 		this.days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 		this.numOfTrucks = [];
 		ScheduleBoard.weekList.push(this);
@@ -523,28 +396,56 @@ class ScheduleBoard {
 		}
 		document.querySelector(".sb-days").innerHTML = tempString;
 	}
-	// displayTruck() {
-	// 	var newTruck = ``;
-	// 	for (var i = 1; i <= truckCount; i++) {
-	// 		newTruck += new Truck(i, i);
-	// 	}
-	// 	document.getElementById("truck-schedule-layout").innerHTML = newTruck;
-	// }
+	displayTruck() {
+		var output = ``;
+		for (var i = 1; i <= this.truckTotal; i++) {
+			this.numOfTrucks.push(new Truck("Bobby", i, 4, 3));
+		}
+		for (var i = 0; i < this.numOfTrucks.length; i++) {
+			output += this.numOfTrucks[i].createTruck();
+		}
+		document.getElementById("schedule-board-layout").innerHTML = output;
+	}
+	saveTruckSettings() {
+		var firstRunNumber = document.getElementById(
+			"select-first-run-count"
+		).value;
+		Truck.firstRunStops = firstRunNumber;
+
+		var secondRunNumber = document.getElementById(
+			"select-second-run-count"
+		).value;
+		Truck.secondRunStops = secondRunNumber;
+
+		if (noSecondRuns.checked) {
+			addSecondRuns = false;
+		}
+		if (yesSecondRuns.checked) {
+			addSecondRuns = true;
+		}
+		console.log("test complete");
+	}
 }
 
 class Truck {
-	constructor(driverName, number) {
+	constructor(driverName, number, firstRunStops, secondRunStops) {
 		this.driverName = driverName;
 		this.number = number;
+		this.firstRunStops = firstRunStops;
+		this.secondRunStops = secondRunStops;
 	}
 	createTruck() {
+		var btn = document.querySelector(".save-truck-settings");
+		btn.addEventListener("click", saveTruckSettings());
+		var output = document.getElementById("truck-schedule-layout");
 		var truckLayout = `
-		<p class="truck-num-driver-name">
-            Truck <span class="truck-num">${Truck.number}</span>: <span>${Truck.driverName}</span>
+		<p class="truck-num-driver-name color${this.number}" onclick="displayTruckSettings(this)">
+            Truck <span class="truck-num">${this.number}</span>: <span>${this.driverName}</span>
         </p>`;
-		truckLayout += Truck.createFirstRunStops();
-		document.getElementById("truck-schedule-layout").innerHTML =
-			truckLayout;
+		truckLayout += this.createFirstRunStops();
+		truckLayout += this.createSecondRunStops();
+		output.innerHTML = truckLayout;
+		return output.outerHTML;
 	}
 	createFirstRunStops() {
 		var output = document.getElementById("first-runs-top-level");
@@ -552,7 +453,28 @@ class Truck {
 		<p class="first-run-header" id="first-runs-header">First Runs</p>
 		<div id="first-run-cell-count">
 		`;
-		for (var i = 1; i <= firstRunCount; i++) {
+		for (var i = 1; i <= this.firstRunStops; i++) {
+			stopRow += `
+			<div class="stop-num flex" id="stop-num-cell">
+				<div class="delivery-cell"></div>
+				<div class="delivery-cell"></div>
+				<div class="delivery-cell"></div>
+				<div class="delivery-cell"></div>
+				<div class="delivery-cell"></div>
+			</div>
+			`;
+		}
+		stopRow += `</div>`;
+		output.innerHTML = stopRow;
+		return output.outerHTML;
+	}
+	createSecondRunStops() {
+		var output = document.getElementById("second-runs-top-level");
+		let stopRow = `
+		<p class="second-run-header" id="second-runs-header">Second Runs</p>
+		<div id="second-run-cell-count">
+		`;
+		for (var i = 1; i <= this.secondRunStops; i++) {
 			stopRow += `
 			<div class="stop-num flex" id="stop-num-cell">
 				<div class="delivery-cell"></div>
@@ -569,8 +491,21 @@ class Truck {
 	}
 }
 
-const sb = new ScheduleBoard();
+let sb = new ScheduleBoard(
+	30,
+	getDateRangeOfWeek(30)[0],
+	getDateRangeOfWeek(30)[1],
+	4
+);
 sb.createWeeks();
 sb.displayDaysOfWeek();
 sb.displaySBHeader();
 sb.displayTruck();
+
+function saveSettings() {
+	var truckNumber = document.getElementById("select-truck-num").value;
+	sb.truckTotal = truckNumber;
+	sb.displayTruck();
+
+	displaySettings();
+}
