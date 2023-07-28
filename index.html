@@ -12,26 +12,28 @@
 
 <body>
 
-    <nav class="flex">
-        <h1>Dispatch Pro</h1>
-        <ul class="nav-links flex">
-            <li><a href="index.html" class="flex">
-                    <img src="./icons/calendar.green.svg" alt="calendar" class="active-img">
-                    <span class="active">Dispatch</span>
-                </a></li>
-            <li class="flex"><a href="vehicles.html" class="flex">
-                    <img src="./icons/box.truck.svg" alt="vehicles">
-                    Vehicles
-                </a></li>
-            <li class="flex"><a href="customers.html" class="flex">
-                    <img src="./icons/person.svg" alt="customers">
-                    Customers
-                </a></li>
-            <li class="flex"><a href="#" class="flex">
-                    <img src="./icons/gearshape.svg" alt="account">
-                    Account
-                </a></li>
-        </ul>
+    <nav>
+        <div class="nav-wrapper flex">
+            <h1>Dispatch Pro</h1>
+            <ul class="nav-links flex">
+                <li><a href="index.html" class="flex">
+                        <img src="./icons/calendar.green.svg" alt="calendar" class="active-img">
+                        <span class="active">Dispatch</span>
+                    </a></li>
+                <li class="flex"><a href="vehicles.html" class="flex">
+                        <img src="./icons/box.truck.svg" alt="vehicles">
+                        Vehicles
+                    </a></li>
+                <li class="flex"><a href="customers.html" class="flex">
+                        <img src="./icons/person.svg" alt="customers">
+                        Customers
+                    </a></li>
+                <li class="flex"><a href="#" class="flex">
+                        <img src="./icons/gearshape.svg" alt="account">
+                        Account
+                    </a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>
@@ -128,7 +130,8 @@
                 </div>
             </div>
             <button class="settings-btn flex" ondblclick="displaySettings()" id="settings-gear">
-                <img src="./icons/gearshape.svg" alt="schedule-settings">
+                <img src="./icons/gearshape.svg" alt="schedule-settings" class="tooltip">
+                <span class="tooltiptext">Click and hold to drag, double-click to open settings</span>
             </button>
         </div>
     </main>

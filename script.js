@@ -77,12 +77,12 @@ function displaySettings() {
 function displayScheduler() {
 	if (!schedulerDisplayed) {
 		scheduleDelivery.style.display = "block";
-		scheduleDelivery.style.left = "34%";
+		scheduleDelivery.style.left = "37%";
 		scheduleDelivery.style.bottom = "10%";
 		schedulerDisplayed = true;
 	} else {
 		scheduleDelivery.style.display = "none";
-		scheduleDelivery.style.left = "34%";
+		scheduleDelivery.style.left = "37%";
 		scheduleDelivery.style.bottom = "10%";
 		schedulerDisplayed = false;
 	}
