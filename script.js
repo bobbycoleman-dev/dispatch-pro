@@ -523,13 +523,13 @@ class ScheduleBoard {
 		}
 		document.querySelector(".sb-days").innerHTML = tempString;
 	}
-	displayTruck() {
-		var newTruck = ``;
-		for (var i = 1; i <= truckCount; i++) {
-			newTruck += new Truck(i, i);
-		}
-		document.getElementById("truck-schedule-layout").innerHTML = newTruck;
-	}
+	// displayTruck() {
+	// 	var newTruck = ``;
+	// 	for (var i = 1; i <= truckCount; i++) {
+	// 		newTruck += new Truck(i, i);
+	// 	}
+	// 	document.getElementById("truck-schedule-layout").innerHTML = newTruck;
+	// }
 }
 
 class Truck {
